@@ -1,0 +1,8 @@
+<h1>Index de bookings</h1>
+<ul>
+  <% @bookings.each do |booking| %>
+    <li><%= booking.article_id %></li>
+    <li><%= booking.user_id %></li>
+    <li><%= booking.status %></li>
+  <% end %>
+</ul>

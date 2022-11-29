@@ -1,0 +1,27 @@
+<div class="container">
+  <% @articles.each do |article| %>
+    <p>
+    <strong>Category:</strong>
+    <%= article.category %>
+    </p>
+
+    <p>
+    <strong>Name:</strong>
+    <%= article.name %>
+    </p>
+
+    <p>
+    <strong>Price:</strong>
+    <%= article.price %>
+    </p>
+
+    <p>
+    <strong>Description:</strong>
+    <%= article.description %>
+    </p>
+    <p>
+      <%= link_to "Show this Post", article %>
+    </p>
+  <% end %>
+  <%= link_to "Create a new post", new_article_path %>
+</div>

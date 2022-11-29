@@ -1,0 +1,20 @@
+<h1>Editing article</h1>
+<div class="container">
+  <%= simple_form_for(@article) do |f| %>
+    <div class="form-inputs">
+      <%= f.input :category %>
+      <%= f.input :name %>
+      <%= f.input :price %>
+      <%= f.input :description %>
+      <%# <%= f.input :photos, as: :file, input_html: { multiple: true } %> %>
+      <%# <%= f.file_field :photos, multiple: true %> %>
+      <%= f.button :submit %>
+    </div>
+  <% end %>
+
+
+  <div>
+    <%= link_to "Show this article", @article %> |
+    <%= link_to "Back to articles", root_path %>
+  </div>
+</div>

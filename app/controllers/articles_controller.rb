@@ -35,7 +35,7 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article.destroy
-    redirect_to root_path, notice: "post was successfully destroyed."
+    redirect_to articles_path, notice: "post was successfully destroyed."
   end
 
   private
@@ -44,8 +44,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
-  # add this after cloud photo feature is active (photos: [])
   def article_params
-    params.require(:article).permit(:category, :name, :price, :description)
+    params.require(:article).permit(:category, :name, :price, :description, photos: [])
   end
 end

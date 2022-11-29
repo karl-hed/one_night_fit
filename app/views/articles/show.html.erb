@@ -1,5 +1,5 @@
 <p>show page</p>
-<   <p>
+    <p>
     <strong>Category:</strong>
     <%= @article.category %>
     </p>
@@ -20,9 +20,9 @@
     </p>
     <p>
 
-<%# <% @article.photos.each do |photo| %>
-  <%# <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill  %> %>
-<%# <% end %> %> %>
+  <% @article.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
 
 <div>
   <%= link_to "Edit this post", edit_article_path(@article) %> |

@@ -38,6 +38,10 @@ class ArticlesController < ApplicationController
     redirect_to articles_path, notice: "post was successfully destroyed."
   end
 
+  def profile
+    @articles
+  end
+
   private
 
   def set_article

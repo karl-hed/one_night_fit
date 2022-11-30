@@ -1,4 +1,5 @@
-<p>show page</p>
+<div class="container">
+  <p>show page</p>
     <p>
     <strong>Category:</strong>
     <%= @article.category %>
@@ -20,11 +21,22 @@
     </p>
     <p>
 
+
+    <p>
+      <strong>Article belongs to:</strong><br>
+      <strong>User First Name:</strong> <%= @article.user.first_name %>
+      <br>
+      <strong>User Last Name:</strong> <%= @article.user.last_name %>
+      <br>
+      <%= link_to "I want this article", new_article_booking_path(@article) %>
+    </p>
+</div>
+
   <% @article.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
   <% end %>
 
-<div>
+<div class="container">
   <%= link_to "Edit this post", edit_article_path(@article) %> |
   <%= link_to "Back to all posts", articles_path %>
 

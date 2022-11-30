@@ -49,6 +49,6 @@ puts "Creating bookings"
     comment: comments.sample,
     status: statuses.sample,
     user: User.find_by(email: 'c@c.com'),
-    article: Article.find_by(name: 'sweater')
+    article: Article.find_by(id: 1)
   )
 end

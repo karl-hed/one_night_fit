@@ -9,17 +9,11 @@
     <li>Booking user id: <%= booking.user_id %></li>
     <li>Booking status: <%= booking.status %></li>
     <li>Comment: <%= booking.comment %></li>
-    <%# <%= raise %>
-    <%# <% Article.find_by(id: booking.article_id).photos.each do |photo| %>
-
-      <% if booking.article.photos.attached? %>
-        <%= cl_image_tag photo.first.key, height: 300, width: 400, crop: :fill %>
-      <% else %>
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", height: 300, width: 400, crop: :fill %>
-      <% end %>
-      <%# <%= photo.key %>
-
-    <%# <% end %>
+    <% if booking.article.photos.attached? %>
+      <%= cl_image_tag photo.first.key, height: 300, width: 400, crop: :fill %>
+    <% else %>
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", height: 300, width: 400, crop: :fill %>
+    <% end %>
     <hr>
   <% end %>
 </ul>

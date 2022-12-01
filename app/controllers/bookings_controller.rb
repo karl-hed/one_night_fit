@@ -29,7 +29,7 @@ class BookingsController < ApplicationController
   end
 
   def update
-    raise
+    # raise
     @booking.update(booking_params)
     redirect_to bookings_path
   end
@@ -41,7 +41,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:comment)
+    params.require(:booking).permit(:comment, :status)
   end
 
   def set_bookings

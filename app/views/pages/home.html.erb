@@ -4,11 +4,51 @@
   <div class="container">
     <h1><strong>Make a fashion statement just for the night!</strong></h1>
     <p>Find your Fit</p>
-    <a class="btn btn-flat" href="#">Shop now</a>
+    <%# <a class="btn btn-flat" href="#">Shop now</a> %>
 
-
+<div class="btn btn-flat">
+ <%= link_to "Shop now", articles_path, :class => "btn" %>
+</div>
   </div>
 </div>
+
+<div class="container ">
+
 <h3>Popular items</h3>
 
-<p> <%= link_to "All posts", articles_path %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <div class="card" style="width: 18rem;">
+  <img src="https://anindigoday.com/wp-content/uploads/2021/03/how-to-condition-a-leather-jacket.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-flat">View</a>
+  </div>
+</div>
+
+</div>
+    <div class="col-sm">
+      <div class="card" style="width: 18rem;">
+  <img src="https://5.imimg.com/data5/SELLER/Default/2020/9/RM/UT/BW/113537169/adidas-yeezy-boost-350-v2-reflective-lace-1000x1000.jpeg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-flat">View</a>
+  </div>
+</div>
+    </div>
+    <div class="col-sm">
+      <div class="card" style="width: 18rem;">
+  <img src="https://media.karousell.com/media/photos/products/2021/1/31/chanel_purse__preloved_1612101512_62c328b7_progressive.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-flat">View</a>
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+</div>

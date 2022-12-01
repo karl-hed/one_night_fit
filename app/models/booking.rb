@@ -3,7 +3,7 @@ class Booking < ApplicationRecord
   belongs_to :article
   enum status: {
     pending: 0,
-    active: 1,
-    archived: 2
+    accepted: 1,
+    rejected: 2
   }
 end

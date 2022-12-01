@@ -1,5 +1,5 @@
 class Article < ApplicationRecord
-  CATEGORIES = %w[clothing accessories shoes].freeze
+  CATEGORIES = %w[Clothing Accessories Shoes].freeze
   has_many_attached :photos
   belongs_to :user
   has_many :bookings, dependent: :destroy

@@ -1,9 +1,37 @@
-<h1>Index of bookings</h1>
+<h1><%= current_user.first_name %> <%= current_user.last_name %>'s clothes</h1>
 <ul>
+  <!-- En tant que locataire -->
   <% @bookings.each do |booking| %>
-    <li>Booking id: <%= booking.article_id %></li>
+    <li>Booking article_id: <%= booking.article_id %></li>
+    <% article_name = Article.find_by(id: booking.article_id).name %>
+    <li>Booking name: <%= article_name %></li>
+    <li>Booking id: <%= booking.id %></li>
     <li>Booking user id: <%= booking.user_id %></li>
     <li>Booking status: <%= booking.status %></li>
     <li>Comment: <%= booking.comment %></li>
+    <hr>
   <% end %>
 </ul>
+
+<!-- Requetes qu'on recoit en tant que proprietaire -->
+<h2>Requested articles (clothes) by other users</h2>
+<p>Number of requests by other users: <%= current_user.bookings_as_owner.count %></p>
+<% current_user.bookings_as_owner.each do |booking| %>
+  <p>Booking ID: <%= booking.id %></p>
+  <p><strong>Comment: </strong><%= booking.comment %> by
+    <em>
+      <% user = User.find_by(id: booking.user_id) %>
+      <%= user.first_name %> <%= user.last_name %>
+    </em>
+  </p>
+
+  <%# First method with a link_to for accepting the request %>
+  <p><%= link_to "Accept", booking_path(booking, status: "accepted"), data: {turbo_method: :patch}, class: "btn btn-primary" %></p>
+
+  <%# Second method with a simmple_form_for for rejecting the request %>
+  <p><%= simple_form_for(booking) do |f| %>
+      <%= f.hidden_field :status, value: "rejected" %>
+      <%= f.submit :Decline, class: "btn btn-danger" %>
+     <% end %>
+  </p>
+<% end %>

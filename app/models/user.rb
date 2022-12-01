@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :articles
   has_many :bookings, through: :articles
+  has_many :bookings_as_owner, through: :articles, source: :bookings
 end

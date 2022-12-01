@@ -21,19 +21,15 @@
     </p>
     <p>
 
-
     <p>
-      <strong>Article belongs to:</strong><br>
-      <strong>User First Name:</strong> <%= @article.user.first_name %>
-      <br>
-      <strong>User Last Name:</strong> <%= @article.user.last_name %>
+      <strong>Article belongs to: </strong><%= @article.user.first_name %> <%= @article.user.last_name %>
       <br>
       <%= link_to "I want this article", new_article_booking_path(@article) %>
     </p>
 </div>
 
   <% @article.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <%# <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
   <% end %>
 
 <div class="container">

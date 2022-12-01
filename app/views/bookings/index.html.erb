@@ -8,8 +8,9 @@
   <% end %>
 </ul>
 
-<p>Number of request by other users: <%= current_user.bookings_as_owner.count %></p>
+<p>Number of requests by other users: <%= current_user.bookings_as_owner.count %></p>
 <% current_user.bookings_as_owner.each do |booking| %>
+  <p>Booking ID: <%= booking.id %></p>
   <p><strong>Comment: </strong><%= booking.comment %> by
     <% user = User.find_by(id: booking.user_id) %>
     <%= user.first_name %> <%= user.last_name %>
@@ -22,3 +23,7 @@
   </p>
   <%# <p><%= link_to "Decline", "#", class: "btn btn-danger" %>
 <% end %>
+
+
+
+<hr>

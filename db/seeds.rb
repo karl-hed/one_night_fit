@@ -28,7 +28,6 @@ index = 0
   index += 1
 end
 
-categories = %w[fashion used new modern]
 names = %w[jean sweater hoodie pants]
 price = (1..10).to_a
 description = %w[never\ worn brand\ new old\ school]
@@ -38,7 +37,7 @@ index = 0
 puts "Creating articles"
 4.times do
   Article.create!(
-    category: categories.sample,
+    category: CATEGORIES.sample,
     name: names.sample,
     price: price.sample,
     description: description.sample,

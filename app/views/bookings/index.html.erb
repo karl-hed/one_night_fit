@@ -7,3 +7,10 @@
     <li>Comment: <%= booking.comment %></li>
   <% end %>
 </ul>
+<%= current_user.first_name %>
+<%= current_user.last_name %>
+<p>Number of request by other users: <%= current_user.bookings_as_owner.count %></p>
+<% current_user.bookings_as_owner.each do |booking| %>
+  <p><%= booking %></p>
+  <p><%= booking.comment %></p>
+<% end %>

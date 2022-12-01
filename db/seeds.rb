@@ -6,9 +6,13 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-first_names = %w[F D J-F Isa]
-last_names = %w[A-A B-B C-C D-D]
-emails = %w[b@b.com c@c.com d@d.com e@e.com]
+Booking.destroy_all
+Article.destroy_all
+User.destroy_all
+
+first_names = %w[Frank Dom Jean-Francois Isabelle]
+last_names = %w[Tremblay Beaulieu Allard Daniel]
+emails = %w[frank_tremblay@lewagon.com dom_beaulieu@lewagon.com jean-francois_allard@lewagon.com isabelle_daniel@lewagon.com]
 
 puts "Creating users"
 
@@ -16,8 +20,8 @@ index = 0
 
 4.times do
   User.create!(
-    first_name: first_names.sample,
-    last_name: last_names.sample,
+    first_name: first_names[index],
+    last_name: last_names[index],
     password: '123456',
     email: emails[index]
   )
@@ -29,6 +33,8 @@ names = %w[jean sweater hoodie pants]
 price = (1..10).to_a
 description = %w[never\ worn brand\ new old\ school]
 
+index = 0
+
 puts "Creating articles"
 4.times do
   Article.create!(
@@ -36,19 +42,25 @@ puts "Creating articles"
     name: names.sample,
     price: price.sample,
     description: description.sample,
-    user: User.find_by(email: 'c@c.com')
+    # user: User.find_by(email: 'isabelle_daniel@lewagon.com')
+    user: User.find_by(id: index + 1)
   )
+  index += 1
 end
 
 comments = %w[very\ good happy good\ purchase bad\ product]
 statuses = (0..2).to_a
+
+index = 0
 
 puts "Creating bookings"
 4.times do
   Booking.create!(
     comment: comments.sample,
     status: statuses.sample,
-    user: User.find_by(email: 'c@c.com'),
+    # user: User.find_by(email: 'isabelle_daniel@lewagon.com'),
+    user: User.find_by(id: index + 1),
     article: Article.find_by(id: 1)
   )
+  index += 1
 end

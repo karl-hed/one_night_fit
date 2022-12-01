@@ -50,15 +50,15 @@ end
 comments = %w[very\ good happy good\ purchase bad\ product]
 statuses = (0..2).to_a
 
-index = 0
+# index = 0
 
 puts "Creating bookings"
-4.times do
+2.times do
   Booking.create!(
     comment: comments.sample,
     status: statuses.sample,
-    user: User.find_by(id: index + 1),
-    article: Article.find_by(id: index + 1)
+    user: User.find_by(id: index),
+    article: Article.find_by(id: index)
   )
-  index += 1
+  index -= 1
 end

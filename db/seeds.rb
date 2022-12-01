@@ -42,7 +42,6 @@ puts "Creating articles"
     name: names.sample,
     price: price.sample,
     description: description.sample,
-    # user: User.find_by(email: 'isabelle_daniel@lewagon.com')
     user: User.find_by(id: index + 1)
   )
   index += 1
@@ -58,9 +57,8 @@ puts "Creating bookings"
   Booking.create!(
     comment: comments.sample,
     status: statuses.sample,
-    # user: User.find_by(email: 'isabelle_daniel@lewagon.com'),
     user: User.find_by(id: index + 1),
-    article: Article.find_by(id: 1)
+    article: Article.find_by(id: index + 1)
   )
   index += 1
 end

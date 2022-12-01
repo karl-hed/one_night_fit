@@ -1,4 +1,4 @@
-<h1>Index of bookings</h1>
+<h1>Bookings for <%= current_user.first_name %> <%= current_user.last_name %></h1>
 <ul>
   <% @bookings.each do |booking| %>
     <li>Booking id: <%= booking.article_id %></li>
@@ -7,13 +7,13 @@
     <li>Comment: <%= booking.comment %></li>
   <% end %>
 </ul>
-<%= current_user.first_name %>
-<%= current_user.last_name %>
+
 <p>Number of request by other users: <%= current_user.bookings_as_owner.count %></p>
 <% current_user.bookings_as_owner.each do |booking| %>
-  <p><%= booking %></p>
   <p><strong>Comment: </strong><%= booking.comment %> by
     <% user = User.find_by(id: booking.user_id) %>
     <%= user.first_name %> <%= user.last_name %>
   </p>
+  <p><%= link_to "Accept #{user.first_name} #{user.last_name} request", "#", class: "btn btn-gradient" %></p>
+  <p><%= link_to "Decline #{user.first_name} #{user.last_name} request", "#", class: "btn btn-danger" %></p>
 <% end %>

@@ -1,4 +1,8 @@
-<h1><%= current_user.first_name %> <%= current_user.last_name %>'s clothes</h1>
+
+<div class="container">
+
+<h2 class="py-3">My requests & Inquiries (<%=current_user.bookings_as_owner.count %>)</h2>
+
 <ul>
   <!-- En tant que locataire -->
   <% @bookings.each do |booking| %>
@@ -33,3 +37,5 @@
      <% end %>
   </p>
 <% end %>
+
+</div>

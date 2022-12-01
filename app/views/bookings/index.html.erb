@@ -12,5 +12,7 @@
 <p>Number of request by other users: <%= current_user.bookings_as_owner.count %></p>
 <% current_user.bookings_as_owner.each do |booking| %>
   <p><%= booking %></p>
-  <p><%= booking.comment %></p>
+  <p><strong>Comment: </strong><%= booking.comment %> by
+    <%= User.find_by(id: booking.user_id).first_name %>
+  </p>
 <% end %>

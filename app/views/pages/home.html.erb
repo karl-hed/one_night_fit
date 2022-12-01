@@ -1,54 +1,144 @@
 
+<style>
+.carousel-item {
+height: 32rem;
+background: #000;
+color: white;
+position: relative;
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1599397142402-3bd33b21d599?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80);">
+}
+
+.overlay-image {
+  position: absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  top:0;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.5;
+}
+.services .card-body i {
+  font-size: 50px;
+}
+
+</style>
+<div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></li>
+    <li data-bs-target="#myCarousel" data-bs-slide-to="1"></li>
+    <li data-bs-target="#myCarousel" data-bs-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class= "carousel-item active" >
+      <div class="overlay-image" style="background-image: url(https://res.cloudinary.com/dyyzftmya/image/upload/v1669856498/creativefred-oat3l0iVwPs-unsplash_mkqaee.jpg)"></div>
+      <div class="container h-100 position-relative">
+        <div class= "position-absolute bottom-0 start-20 m-5" >
+        <h1>One Night Fit</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati magnam magni sit itaque veritatis fugit! Molestiae laboriosam debitis nesciunt natus perferendis, reiciendis totam beatae similique ut provident, error exercitationem esse?</p>
+        <a href="#" class="btn btn-lg btn-success">
+        Sign up today
+        </a>
+      </div>
+      </div>
+    </div>
+    <div class= "carousel-item">
+    <div class="overlay-image" style="background-image: url(https://images.unsplash.com/photo-1579298245158-33e8f568f7d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1790&q=80)"></div>
+      <div class="container h-100 position-relative">
+        <div class= "position-absolute bottom-0 start-20 m-5" >
+        <h1>Example Headline</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati magnam magni sit itaque veritatis fugit! Molestiae laboriosam debitis nesciunt natus perferendis, reiciendis totam beatae similique ut provident, error exercitationem esse?</p>
+        <a href="#" class="btn btn-lg btn-warning">
+        Sign up today
+        </a>
+      </div>
+      </div>
+    </div>
+    <div class= "carousel-item">
+    <div class="overlay-image" style="background-image: url(https://res.cloudinary.com/dyyzftmya/image/upload/v1669859593/laura-chouette-Kw0jmX8MGqc-unsplash_lxq46i.jpg)"></div>
+      <div class="container h-100 position-relative">
+        <div class= "position-absolute bottom-0 start-20 m-5" >
+        <h1>Example Headline</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati magnam magni sit itaque veritatis fugit! Molestiae laboriosam debitis nesciunt natus perferendis, reiciendis totam beatae similique ut provident, error exercitationem esse?</p>
+        <a href="#" class="btn btn-lg btn-dark">
+        Sign up today
+        </a>
+      </div>
+      </div>
+    </div>
+  </div>
+  <a href="#myCarousel" class="carousel-control-prev" role="button" data-bs-slide="prev">
+  <span class="sr-only">previous</span>
+  <span class="carousel-control-prev-icon" aria-hidden="true"></span></a>
+    <a href="#myCarousel" class="carousel-control-next" role="button" data-bs-slide="next">
+  <span class="sr-only">previous</span>
+  <span class="carousel-control-next-icon" aria-hidden="true"></span></a>
+</div>
+
+
+<section id="portfolio" class="portfolio section-padding mt-5">
   <div class="container">
-    <h1><strong>Make a fashion statement just for the night!</strong></h1>
-    <p>Find your Fit</p>
-    <%# <a class="btn btn-flat" href="#">Shop now</a> %>
-
-<div class="btn btn-flat">
- <%= link_to "Shop now", articles_path, :class => "btn" %>
-</div>
-  </div>
-</div>
-
-<div class="container ">
-
-<h3>Popular items</h3>
-
-<div class="container">
-  <div class="row">
-    <div class="col-sm">
-      <div class="card" style="width: 18rem;">
-  <img src="https://anindigoday.com/wp-content/uploads/2021/03/how-to-condition-a-leather-jacket.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-flat">View</a>
-  </div>
-</div>
-
-</div>
-    <div class="col-sm">
-      <div class="card" style="width: 18rem;">
-  <img src="https://5.imimg.com/data5/SELLER/Default/2020/9/RM/UT/BW/113537169/adidas-yeezy-boost-350-v2-reflective-lace-1000x1000.jpeg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-flat">View</a>
-  </div>
-</div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-header text-center pd-5">
+          <h2>Papular Items</h2>
+          <p></p>
+        </div>
+      </div>
     </div>
-    <div class="col-sm">
-      <div class="card" style="width: 18rem;">
-  <img src="https://media.karousell.com/media/photos/products/2021/1/31/chanel_purse__preloved_1612101512_62c328b7_progressive.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-flat">View</a>
-  </div>
-</div>
+    <div class="row">
+      <div class="col-12 col-md-12 col-lg-3">
+        <div class="card text-light text-center bg-white pb-2">
+          <div class="card-body text-dark">
+            <div class="img-area mb-4">
+              <img src="https://res.cloudinary.com/dyyzftmya/image/upload/v1669866422/stepan-kulyk-qRvEJj-Npwc-unsplash_cqclq1.jpg" alt="" class="img-fluid">
+            </div>
+            <h3 class="card-title">Building Make</h3>
+            <p class="lead">Text Here</p>
+            <button class="btn bg-warning text text-dark">Learn More</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-12 col-lg-3">
+        <div class="card text-light text-center bg-white pb-2">
+          <div class="card-body text-dark">
+            <div class="img-area mb-4">
+              <img src="https://res.cloudinary.com/dyyzftmya/image/upload/v1669912967/mostafa-meraji-jbCdjcPFZxA-unsplash_1_ly8hpm.jpg" alt="" class="img-fluid">
+            </div>
+            <h3 class="card-title">Building Make</h3>
+            <p class="lead">Text Here</p>
+            <button class="btn bg-warning text text-dark">Learn More</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-12 col-lg-3">
+        <div class="card text-light text-center bg-white pb-2">
+          <div class="card-body text-dark">
+            <div class="img-area mb-4">
+              <img src="https://res.cloudinary.com/dyyzftmya/image/upload/v1669913115/sour-moha-reIwXKVcN7Q-unsplash_v4t94i.jpg" alt="" class="img-fluid">
+            </div>
+            <h3 class="card-title">Building Make</h3>
+            <p class="lead">Text Here</p>
+            <button class="btn bg-warning text text-dark">Learn More</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-12 col-lg-3">
+        <div class="card text-light text-center bg-white pb-2">
+          <div class="card-body text-dark">
+            <div class="img-area mb-4">
+              <img src="https://res.cloudinary.com/dyyzftmya/image/upload/v1669913399/sabesh-photography-TPwHjQy21O4-unsplash_ufyxzk.jpg" alt="" class="img-fluid">
+            </div>
+            <h3 class="card-title">Building Make</h3>
+            <p class="lead">Text Here</p>
+            <button class="btn bg-warning text text-dark">Learn More</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-</div>
+</section>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

@@ -6,7 +6,7 @@
             <div class="carousel-inner">
                 <% @article.photos.each do |photo| %>
             <div class="carousel-item active">
-              <%= cl_image_tag photo.key, :crop=>"scale", class:"d-block w-100 h-100"%>
+              <%= cl_image_tag photo.key, class:"img-fluid ", :width=>800, :height=>1000, :gravity=>"auto", :crop=>"fill"%>
             </div>
             <% end %>
             </div>
@@ -40,7 +40,7 @@
               <%= link_to 'Edit', edit_article_path, :class => "btn btn-outline-primary w-100 rounded btn-lg"%>
               <br>
                 <br>
-                <%= link_to "Destroy this article", @article, method: :delete %>
+                <%= button_to "Destroy this article", @article, method: :delete, class:"btn btn-link"%>
           </div>
         </div>
       </div>

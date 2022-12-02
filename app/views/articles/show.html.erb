@@ -6,7 +6,7 @@
             <div class="carousel-inner">
                 <% @article.photos.each do |photo| %>
             <div class="carousel-item active">
-              <%= cl_image_tag photo.key, height: 300, class:"d-block w-100 h-100"%>
+              <%= cl_image_tag photo.key, :crop=>"scale", class:"d-block w-100 h-100"%>
             </div>
             <% end %>
             </div>
@@ -27,17 +27,17 @@
           <div class="p-4 border rounded mb-5 mx-4 shadow-lg p-3 mb-5 bg-white rounded">
               <h2><%= @article.name %></h2>
               <br>
-              <p>Price: $ <%= @article.price %></p>
+              <h3>Price: <small>CAD</small> <%= @article.price %></h3>
                 <br>
-              <p>Category:     <%= @article.category %></p>
-              <p>Name:         <%= @article.name %></p>
-              <p>Description:  <%= @article.description %></p>
+              <p><span class="text-black-50"> Category&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><%= @article.category %></p>
+              <p><span class="text-black-50">Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><%= @article.name %></p>
+              <p><span class="text-black-50">Description&nbsp;&nbsp;</span><%= @article.description %></p>
                 <br>
                 <br>
-              <button class="btn btn-primary w-100 rounded btn-lg">Book now</button>
+              <%= link_to 'Book now', new_article_booking_path(@article), :class => "btn btn-primary w-100 rounded btn-lg" %>
               <br>
               <br>
-              <button type="button" class="btn btn-outline-primary w-100 rounded btn-lg">Edit</button>
+              <%= link_to 'Edit', edit_article_path, :class => "btn btn-outline-primary w-100 rounded btn-lg"%>
               <br>
                 <br>
                 <%= link_to "Destroy this article", @article, method: :delete %>

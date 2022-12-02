@@ -18,18 +18,17 @@
           <li class="nav-item">
             <%= link_to "Bookings", bookings_path, class: "nav-link" %>
           </li>
-          <li class="nav-item">
-            <%= link_to "Sign in", user_session_path, class: "nav-link" %>
-          </li>
+
           <li class="nav-item">
             <%= link_to "Shop", articles_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "Create",  new_article_path, class: "nav-link" %>
           </li>
-          <li class="nav-item nav-link" > Hello <%= current_user.first_name%></li>
+          <li class="nav-item nav-link" > <%= current_user.first_name%></li>
           <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag "https://www.sfu.ca/content/sfu/globalhumanities/human-dir/emeritus/d-clavero.img.1657212353.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Action", "#", class: "dropdown-item" %>
 

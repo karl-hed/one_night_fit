@@ -19,25 +19,6 @@
 <!-- Requetes qu'on recoit en tant que proprietaire -->
 <h2>Requested articles (clothes) by other users</h2>
 <p>Number of requests by other users: <%= current_user.bookings_as_owner.count %></p>
-<% current_user.bookings_as_owner.each do |booking| %>
-  <p>Booking ID: <%= booking.id %></p>
-  <p><strong>Comment: </strong><%= booking.comment %> by
-    <em>
-      <% user = User.find_by(id: booking.user_id) %>
-      <%= user.first_name %> <%= user.last_name %>
-    </em>
-  </p>
-
-  <%# First method with a link_to for accepting the request %>
-  <p><%= link_to "Accept", booking_path(booking, status: "accepted"), data: {turbo_method: :patch}, class: "btn btn-primary" %></p>
-
-  <%# Second method with a simmple_form_for for rejecting the request %>
-  <p><%= simple_form_for(booking) do |f| %>
-      <%= f.hidden_field :status, value: "rejected" %>
-      <%= f.submit :Decline, class: "btn btn-danger" %>
-     <% end %>
-  </p>
-<% end %>
 </div>
 
 <div class="container">
@@ -98,9 +79,11 @@
             </div>
             <div class="col-md-10">
               <div class="card-body d-flex-row">
-                <h5 class="card-title">Inquiry - owner_of article: <%= booking.user_id %> </h5>
+                <% article_value = Article.find_by(id: booking.article_id) %>
+                <% owner = User.find_by(id: article_value.user_id) %>
+                <h5 class="card-title">Inquiry - owner_of article: <%= owner.first_name %> <%= owner.last_name %> </h5>
                 <p class="card-text">Name of article: <%= article_name %></p>
-                <p class="card-text">@mycomment of article It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here',</p>
+                <p class="card-text"><%= booking.comment %></p>
                 <p class="card-text">
                   <small class="text-muted">Status: <%= booking.status %>
                     <% if booking.status == 1 %>

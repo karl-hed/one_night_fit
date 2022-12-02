@@ -24,8 +24,10 @@
 <% current_user.bookings_as_owner.each do |booking| %>
   <p>Booking ID: <%= booking.id %></p>
   <p><strong>Comment: </strong><%= booking.comment %> by
-    <% user = User.find_by(id: booking.user_id) %>
-    <%= user.first_name %> <%= user.last_name %>
+    <em>
+      <% user = User.find_by(id: booking.user_id) %>
+      <%= user.first_name %> <%= user.last_name %>
+    </em>
   </p>
 
   <%# First method with a link_to for accepting the request %>

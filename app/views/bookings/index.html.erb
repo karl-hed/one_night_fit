@@ -85,6 +85,7 @@
 
 
 <% @bookings.each do |booking| %>
+  <% article_name = Article.find_by(id: booking.article_id).name %>
   <div class="container">
     <div class="row">
       <div class="strip">
@@ -98,7 +99,14 @@
                 <h5 class="card-title">Inquiry - @owner_of article</h5>
                 <p class="card-text">@Name of article</p>
                 <p class="card-text">@mycomment of article It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here',</p>
-                <p class="card-text"><small class="text-muted">Status: @status </small></p>
+                <p class="card-text">
+                  <small class="text-muted">Status: <%= booking.status %>
+                    <% if booking.status == 1 %>
+                      <i class="fa-solid fa-check"></i>
+                      <i class="fa-regular fa-square-check"></i>
+                    <% end %>
+                  </small>
+                </p>
               </div>
             </div>
           </div>

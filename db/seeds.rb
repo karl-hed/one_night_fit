@@ -18,13 +18,16 @@ puts "Creating users"
 
 index = 0
 
+users = []
+
 4.times do
-  User.create!(
+  user = User.create!(
     first_name: first_names[index],
     last_name: last_names[index],
     password: '123456',
     email: emails[index]
   )
+  users << user
   index += 1
 end
 
@@ -44,7 +47,7 @@ puts "Creating articles"
     name: names.sample,
     price: price.sample,
     description: description.sample,
-    user: User.find_by(id: index + 1)
+    user: users[index]
   )
 
   article.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
@@ -57,12 +60,18 @@ statuses = (0..2).to_a
 # index = 0
 
 puts "Creating bookings"
-2.times do
+
   Booking.create!(
     comment: comments.sample,
     status: statuses.sample,
-    user: User.find_by(id: 1),
-    article: Article.find_by(id: 1)
+    user: User.first,
+    article: Article.last
   )
   index -= 1
-end
+
+  Booking.create!(
+    comment: comments.sample,
+    status: statuses.sample,
+    user: User.second,
+    article: Article.third
+  )

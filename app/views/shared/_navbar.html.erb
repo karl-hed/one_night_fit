@@ -25,12 +25,13 @@
             <%= link_to "Sign out", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "New Post",  new_article_path, class: "nav-link" %>
+            <%= link_to "New post",  new_article_path, class: "nav-link" %>
           </li>
           <br>
-          <li class="nav-item nav-link" > Hello <%= current_user.first_name%></li>
-          <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/azizzada", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <li class="nav-item nav-link" ><%= current_user.first_name%></li>
+
+          <li class="nav-item dropdown"></li>
+            <%= image_tag "https://www.sfu.ca/content/sfu/globalhumanities/human-dir/alumni/grad/o-baker.img.1322091648.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Action", "#", class: "dropdown-item" %>
 

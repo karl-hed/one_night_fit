@@ -6,7 +6,7 @@
             <div class="carousel-inner">
                 <% @article.photos.each do |photo| %>
             <div class="carousel-item active">
-              <%= cl_image_tag photo.key, :crop=>"scale", class:"d-block w-100 h-100"%>
+              <%= cl_image_tag photo.key, class:"img-fluid ", :width=>800, :height=>1000, :gravity=>"auto", :crop=>"fill"%>
             </div>
             <% end %>
             </div>
@@ -24,24 +24,23 @@
 
 
         <div class="col-12 col-lg-5">
-          <div class="p-4 border rounded mb-5 mx-4 shadow-lg p-3 mb-5 bg-white rounded">
-              <h2><%= @article.name %></h2>
+          <div class="p-4 border rounded mb-5 mx-4 shadow-lg p-3 mb-5 bg-white rounded r">
+              <h3><%= @article.name %></h3>
+              <p class="mt-1"><%= @article.category %></p>
+              <h5><strong>$<%= @article.price %></strong></h5>
               <br>
-              <h3>Price: <small>CAD</small> <%= @article.price %></h3>
-                <br>
-              <p><span class="text-black-50"> Category&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><%= @article.category %></p>
-              <p><span class="text-black-50">Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><%= @article.name %></p>
-              <p><span class="text-black-50">Description&nbsp;&nbsp;</span><%= @article.description %></p>
+              <p><span class="text-black-50"></span><%= @article.description %></p>
                 <br>
                 <br>
-              <%= link_to 'Book now', new_article_booking_path(@article), :class => "btn btn-primary w-100 rounded btn-lg" %>
+              <%= link_to 'Book now', new_article_booking_path(@article), :class => "btn btn-success w-100 rounded btn-lg" %>
               <br>
               <br>
-              <%= link_to 'Edit', edit_article_path, :class => "btn btn-outline-primary w-100 rounded btn-lg"%>
+              <%= link_to 'Edit', edit_article_path, :class => "btn btn-success w-100 rounded btn-lg"%>
               <br>
                 <br>
-                <%= link_to "Destroy this article", @article, method: :delete %>
+                <%= button_to "Destroy this article", @article, method: :delete, class:"btn btn-link"%>
           </div>
         </div>
       </div>
     </div>
+<%# btn btn-success w-100 rounded btn-lg %>

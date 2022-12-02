@@ -6,8 +6,8 @@
   <div class="row">
     <%= simple_form_for([@article, @booking]) do |f| %>
       <%= f.input :comment %>
-        <%= f.submit :Submit, class: "btn btn-flat" %>
+        <%= f.submit :Submit, class: "btn btn-success" %>
     <% end %>
   </div>
-  <%= link_to 'Back', article_path(@article), class: "btn btn-primary mt-5" %>
+  <%= link_to 'Back', article_path(@article), class: "btn btn-success mt-5" %>
 </div>

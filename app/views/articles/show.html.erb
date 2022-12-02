@@ -34,10 +34,12 @@
               <p>Description:  <%= @article.description %></p>
                 <br>
                 <br>
-              <button class="btn btn-primary w-100 rounded btn-lg">Book now</button>
+              <%# <button class="btn btn-primary w-100 rounded btn-lg">Book now</button> %>
+              <%= link_to "Book now", new_article_booking_path(@article), class: "btn btn-primary w-100 rounded btn-lg" %>
               <br>
               <br>
-              <button type="button" class="btn btn-outline-primary w-100 rounded btn-lg">Edit</button>
+              <%# <button type="button" class="btn btn-outline-primary w-100 rounded btn-lg">Edit</button> %>
+              <%= link_to "Edit", edit_article_path(@article), class: "btn btn-outline-primary w-100 rounded btn-lg" %>
               <br>
                 <br>
                 <%= link_to "Destroy this article", @article, method: :delete %>

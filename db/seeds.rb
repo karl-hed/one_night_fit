@@ -37,13 +37,17 @@ index = 0
 
 puts "Creating articles"
 4.times do
-  Article.create!(
+  file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
+
+  article = Article.create!(
     category: categories.sample,
     name: names.sample,
     price: price.sample,
     description: description.sample,
     user: User.find_by(id: index + 1)
   )
+
+  article.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
   index += 1
 end
 
@@ -57,8 +61,8 @@ puts "Creating bookings"
   Booking.create!(
     comment: comments.sample,
     status: statuses.sample,
-    user: User.find_by(id: index),
-    article: Article.find_by(id: index)
+    user: User.find_by(id: 1),
+    article: Article.find_by(id: 1)
   )
   index -= 1
 end

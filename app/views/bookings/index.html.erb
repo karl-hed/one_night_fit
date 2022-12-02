@@ -1,24 +1,11 @@
 <div class="container">
 
-<h2 class="py-3">My requests & Inquiries (<%= current_user.bookings_as_owner.count %>)</h2>
+  <h2 class="py-3">My requests & Inquiries (<%= current_user.bookings_as_owner.count %>)</h2>
 
-<ul>
   <!-- En tant que locataire -->
-  <% @bookings.each do |booking| %>
-    <li>Booking article_id: <%= booking.article_id %></li>
-    <% article_name = Article.find_by(id: booking.article_id).name %>
-    <li>Booking name: <%= article_name %></li>
-    <li>Booking id: <%= booking.id %></li>
-    <li>Booking user id: <%= booking.user_id %></li>
-    <li>Booking status: <%= booking.status %></li>
-    <li>Comment: <%= booking.comment %></li>
-    <hr>
-  <% end %>
-</ul>
+
 
 <!-- Requetes qu'on recoit en tant que proprietaire -->
-<h2>Requested articles (clothes) by other users</h2>
-<p>Number of requests by other users: <%= current_user.bookings_as_owner.count %></p>
 </div>
 
 <div class="container">
@@ -32,7 +19,11 @@
             <div class="card mb-3 shadow">
               <div class="row g-0">
                 <div class="col-md-2">
-                  <img class="photo" src="https://anindigoday.com/wp-content/uploads/2021/03/how-to-condition-a-leather-jacket.webp" class="img-fluid rounded-start" alt="...">
+                  <% if booking.article.photos.attached? %>
+                    <%= cl_image_tag booking.article.photos.first.key, class: "img-fluid" %>
+                  <% else %>
+                    <img class="photo" src="https://anindigoday.com/wp-content/uploads/2021/03/how-to-condition-a-leather-jacket.webp" class="img-fluid rounded-start" alt="...">
+                  <% end %>
                 </div>
                 <div class="col-md-10">
                   <div class="card-body d-flex-row">
@@ -75,7 +66,11 @@
         <div class="card mb-3 shadow">
           <div class="row g-0">
             <div class="col-md-2">
+            <% if booking.article.photos.attached? %>
+              <%= cl_image_tag booking.article.photos.first.key, class: "img-fluid" %>
+            <% else %>
               <img class="photo" src="https://anindigoday.com/wp-content/uploads/2021/03/how-to-condition-a-leather-jacket.webp" class="img-fluid rounded-start" alt="...">
+            <% end %>
             </div>
             <div class="col-md-10">
               <div class="card-body d-flex-row">
@@ -100,11 +95,6 @@
     </div>
   </div>
 <% end %>
-<div class="container">
-  <% @my_bookings.each do |booking| %>
-    <p>Status: <%= booking.status %></p>
-    <p><%= booking.article.name %></p>
-  <% end %>
-</div>
+
 
 </div>

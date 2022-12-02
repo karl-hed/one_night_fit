@@ -4,6 +4,7 @@ class BookingsController < ApplicationController
   def index
     # @bookings = Booking.all
     @bookings = Booking.where(user: current_user)
+    @my_bookings = current_user.bookings
   end
 
   def edit
@@ -30,8 +31,18 @@ class BookingsController < ApplicationController
 
   def update
     # raise
-    @booking.update(booking_params)
-    redirect_to bookings_path
+    @booking = Booking.find(params[:id])
+    if params[:status].present?
+      @booking.update(status: params[:status])
+      @booking.save
+      redirect_to bookings_path, notice: "Your rental was successfully updated."
+    end
+    # @booking.status = params[:status]
+    # @booking.update(booking_params)
+    # if @booking.save
+    #   raise
+    # end
+    # redirect_to bookings_path
   end
 
   def show

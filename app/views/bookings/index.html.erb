@@ -56,9 +56,9 @@
                 <div class="col-md-10">
                   <div class="card-body d-flex-row">
 
-                    <h5 class="card-title">Request by - <%= user.first_name %> <%= user.last_name %></h5>
-                    <p class="card-text"><strong>Name of article: </strong> <%= booking.article.name %></p>
-                    <p class="card-text"><strong>Comment: </strong><%= booking.comment %></p>
+                    <h5 class="card-title">Request by - <em><%= user.first_name %> <%= user.last_name %></em></h5>
+                    <p class="card-text"><strong>Name of article:</strong> <%= booking.article.name %></p>
+                    <p class="card-text"><strong>Comment:</strong> <%= booking.comment %></p>
 
                     <%= link_to "Accept", booking_path(booking, status: "accepted"), data: {turbo_method: :patch}, class: "btn btn-success" %>
                     <%= simple_form_for(booking) do |f| %>
@@ -81,7 +81,9 @@
 <br>
 <br>
 
-<h4>My Inquiries</h4>
+<div class="container">
+  <h4>My Inquiries</h4>
+</div>
 
 
 <% @bookings.each do |booking| %>
@@ -96,8 +98,8 @@
             </div>
             <div class="col-md-10">
               <div class="card-body d-flex-row">
-                <h5 class="card-title">Inquiry - @owner_of article</h5>
-                <p class="card-text">@Name of article</p>
+                <h5 class="card-title">Inquiry - owner_of article: <%= booking.user_id %> </h5>
+                <p class="card-text">Name of article: <%= article_name %></p>
                 <p class="card-text">@mycomment of article It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here',</p>
                 <p class="card-text">
                   <small class="text-muted">Status: <%= booking.status %>
@@ -115,28 +117,11 @@
     </div>
   </div>
 <% end %>
-
 <div class="container">
-<div class="row">
-<div class="strip">
-<div class="card mb-3 shadow" >
-  <div class="row g-0">
-    <div class="col-md-2">
-      <img class="photo" src="https://anindigoday.com/wp-content/uploads/2021/03/how-to-condition-a-leather-jacket.webp" class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col-md-10 ">
-      <div class="card-body d-flex-row">
-        <h5 class="card-title">Inquiry - @owner_of article</h5>
-        <p class="card-text">@Name of article</p>
-        <p class="card-text">@mycomment of article It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here',</p>
-        <p class="card-text"><small class="text-muted">Status: @status </small></p>
-      </div>
-    </div>
-  </div>
-</div>
-
-</div>
-</div>
+  <% @my_bookings.each do |booking| %>
+    <p>Status: <%= booking.status %></p>
+    <p><%= booking.article.name %></p>
+  <% end %>
 </div>
 
 </div>

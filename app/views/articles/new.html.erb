@@ -1,15 +1,20 @@
 <div class="container">
-<div class="border border-dark border-5 p-5 m-5">
-<h3>Add new article</h3>
-  <%= simple_form_for(@article) do |f| %>
-    <div>
-      <%= f.input :category, :collection => %w[Clothing Accessories Shoes] %>
-      <%= f.input :name %>
-      <%= f.input :price %>
-      <%= f.input :description %>
-      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-      <%= f.button :submit , class: "btn btn-dark"%>
+  <div class="row justify-content-center m-5">
+    <div class="col-12 col-lg-6 ">
+      <div class="p-4 border rounded mb-5 mx-4 shadow-lg p-3 mb-5 bg-white rounded ">
+        <h2>Create a new post</h2>
+        <br>
+        <br>
+        <%= simple_form_for(@article) do |f| %>
+          <%= f.input :category, :collection => %w[Clothing Accessories Shoes] %>
+          <%= f.input :name %>
+          <%= f.input :price %>
+          <%= f.input :description %>
+          <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+          <br>
+          <%= f.button :submit , class: "btn btn-success w-100 rounded btn-lg"%>
+        <% end %>
+      </div>
     </div>
-    </div>
-  <% end %>
+  </div>
 </div>

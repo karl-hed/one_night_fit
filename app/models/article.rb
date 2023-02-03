@@ -5,6 +5,6 @@ class Article < ApplicationRecord
   has_many :bookings, dependent: :destroy
   validates :name, presence: true
   validates :price, presence: true
-  validates :description, length: { minimum: 20 }
+  # validates :description, length: { minimum: 20 }
   validates :category, inclusion: { in: CATEGORIES }
 end

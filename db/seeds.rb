@@ -24,14 +24,14 @@ users = []
   user = User.create!(
     first_name: first_names[index],
     last_name: last_names[index],
-    password: '123456',
+    password: 'abcdefghijk',
     email: emails[index]
   )
   users << user
   index += 1
 end
 
-categories = %w[fashion used new modern]
+categories = %w[Clothing Accessories Shoes]
 names = %w[jean sweater hoodie pants]
 price = (1..10).to_a
 description = %w[never\ worn brand\ new old\ school]

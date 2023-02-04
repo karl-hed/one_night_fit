@@ -24,7 +24,7 @@ users = []
   user = User.create!(
     first_name: first_names[index],
     last_name: last_names[index],
-    password: 'abcdefghijk',
+    password: '123456',
     email: emails[index]
   )
   users << user

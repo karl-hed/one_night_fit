@@ -35,16 +35,21 @@ categories = %w[Clothing Accessories Shoes]
 names = %w[jean sweater hoodie pants]
 price = (1..10).to_a
 description = %w[never\ worn brand\ new old\ school]
+images = %w[app/assets/images/dress1.jpeg app/assets/images/tshirt1.webp app/assets/images/tshirt2.webp app/assets/images/tshirt3.webp]
 
 index = 0
 
 puts "Creating articles"
 4.times do
-  file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
+  #file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
+
+  file = URI.open(images[index])
 
   article = Article.create!(
-    category: categories.sample,
-    name: names.sample,
+    #category: categories.sample,
+    category: "Clothing",
+    #name: names.sample,
+    name: "T-Shirt",
     price: price.sample,
     description: description.sample,
     user: users[index]
@@ -61,17 +66,17 @@ statuses = (0..2).to_a
 
 puts "Creating bookings"
 
-  Booking.create!(
-    comment: comments.sample,
-    status: statuses.sample,
-    user: User.first,
-    article: Article.last
-  )
-  index -= 1
+Booking.create!(
+  comment: comments.sample,
+  status: statuses.sample,
+  user: User.first,
+  article: Article.last
+)
+index -= 1
 
-  Booking.create!(
-    comment: comments.sample,
-    status: statuses.sample,
-    user: User.second,
-    article: Article.third
-  )
+Booking.create!(
+  comment: comments.sample,
+  status: statuses.sample,
+  user: User.second,
+  article: Article.third
+)

@@ -30,9 +30,9 @@ position: relative;
 </style>
 <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
   <ol class="carousel-indicators">
-    <li data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></li>
-    <li data-bs-target="#myCarousel" data-bs-slide-to="1"></li>
-    <li data-bs-target="#myCarousel" data-bs-slide-to="2"></li>
+    <li data-bs-target="<%= articles_path %>" data-bs-slide-to="0" class="active"></li>
+    <li data-bs-target="<%= articles_path %>" data-bs-slide-to="1"></li>
+    <li data-bs-target="<%= articles_path %>" data-bs-slide-to="2"></li>
   </ol>
   <div class="carousel-inner">
     <div class= "carousel-item active" >
@@ -41,7 +41,7 @@ position: relative;
         <div class= "position-absolute bottom-0 start-20 m-5" >
         <h1>One Night Fit</h1>
         <p>Make a fashion statement just for one night</p>
-        <a href="#" class="btn btn-lg btn-success">
+        <a href="<%= articles_path %>" class="btn btn-lg btn-success">
         Shop now
         </a>
       </div>
@@ -53,7 +53,7 @@ position: relative;
         <div class= "position-absolute bottom-0 start-20 m-5" >
         <h1>One Night Fit</h1>
         <p>Make a fashion statement just for one night</p>
-        <a href="#" class="btn btn-lg btn-warning">
+        <a href="<%= articles_path %>" class="btn btn-lg btn-warning">
         Shop now
         </a>
       </div>
@@ -65,7 +65,7 @@ position: relative;
         <div class= "position-absolute bottom-0 start-20 m-5" >
         <h1>One Night Fit</h1>
         <p>Make a fashion statement just for one night</p>
-        <a href="#" class="btn btn-lg btn-dark">
+        <a href="<%= articles_path %>" class="btn btn-lg btn-dark">
         Shop now
         </a>
         </div>

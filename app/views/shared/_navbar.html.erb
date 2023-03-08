@@ -22,11 +22,12 @@
             <%= link_to "Bookings", bookings_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Sign out", destroy_user_session_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
             <%= link_to "New post",  new_article_path, class: "nav-link" %>
           </li>
+          <li class="nav-item">
+            <%= link_to "Sign out", destroy_user_session_path, class: "nav-link" %>
+          </li>
+          <br>
           <br>
           <li class="nav-item nav-link" ><%= current_user.first_name%></li>
 

@@ -38,7 +38,7 @@
   <h4 class="request">Requests Received</h4>
   <% current_user.bookings_as_owner.each do |booking| %>
     <% user = User.find_by(id: booking.user_id) %>
-    <% if current_user != user %>
+    <% if current_user != user%>
       <div class="container">
         <div class="row">
           <div class="strip">
@@ -58,9 +58,12 @@
                     <p class="card-text"><strong>Article name: </strong> <%= booking.article.name %></p>
                     <p class="card-text"><strong>Messege: </strong> <%= booking.comment %></p>
 
+                    <% if booking.status == "pending"%>
                     <%= link_to "Accept", booking_path(booking, status: "accepted"), data: {turbo_method: :patch}, class: "btn btn-success" %>
                     <%= link_to "Decline", booking_path(booking, status: "rejected"), data: {turbo_method: :patch}, class: "btn btn-danger" %>
-
+                    <% elsif booking.status == "accepted" || booking.status == "rejected"%>
+                    <small class="text-muted">Status: <%= booking.status %>
+                    <% end  %>
 
                   </div>
                 </div>
